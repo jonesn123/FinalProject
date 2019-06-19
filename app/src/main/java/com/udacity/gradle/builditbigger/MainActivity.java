@@ -10,16 +10,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
-import com.udacity.gradle.builditbigger.R;
 import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 import com.udacity.gradle.imageactivity.ImageActivity;
-import com.udacity.gradle.jokes.Joker;
 
 import java.io.IOException;
 
@@ -59,9 +56,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Joker myJoker = new Joker();
-        Toast.makeText(this, myJoker.getJoke(), Toast.LENGTH_SHORT).show();
-
         new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Manfred"));
     }
 
@@ -102,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 return myApiService.sayHi(name).execute().getData();
             } catch (IOException e) {
-                return e.getMessage();
+                return null;
             }
         }
 

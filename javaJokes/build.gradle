@@ -37,7 +37,7 @@ With contents:
     package com.udacity.gradle.jokes;
 
     public class Joker {
-        public String getJoke(){
+        public String getRandomJoke(){
             return "This is totally a funny joke";
         }
     }
@@ -58,7 +58,7 @@ With contents:
         @Test
         public void test() {
             Joker joker = new Joker();
-            assert joker.getJoke().length() != 0;
+            assert joker.getRandomJoke().length() != 0;
         }
     }
 

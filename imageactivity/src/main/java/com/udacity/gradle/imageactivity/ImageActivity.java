@@ -18,7 +18,7 @@ public class ImageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_image);
         TextView jokeText = (TextView) findViewById(R.id.hello);
         Intent intent = getIntent();
-        if (intent != null) {
+        if (intent != null && intent.hasExtra(KEY_NAME)) {
             String message = intent.getStringExtra(KEY_NAME);
             jokeText.setText(message);
         }
